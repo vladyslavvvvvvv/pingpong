@@ -11,10 +11,10 @@ window = pygame.display.set_mode((width,height))
 clock = pygame.time.Clock()
 pygame.display.set_caption("Гра Пінг Понг,Автор:Владислав Височан")
 
-#background = pygame.transform.scale(
-#    pygame.image.load(""),
-#    (width,height)
-#)
+background = pygame.transform.scale(
+    pygame.image.load("field.png"),
+    (width,height)
+)
 
 background_color = (253, 253, 3)
 
@@ -65,7 +65,7 @@ score_2 = 0
 speed_x = 5
 speed_y = 5
 
-font2 = pygame.font.Font(None, 40)
+font2 = pygame.font.Font(None, 50)
 
 game_over = False
 finish = False
@@ -77,8 +77,9 @@ while not game_over:
 
     if not finish:
     
-        window.fill(background_color)
- 
+        #window.fill(background_color)
+        window.blit(background, (0,0))
+
         score_1_text = font2.render(str(score_1), True, (0,0,0))
         score_2_text = font2.render(str(score_2), True, (0,0,0))
 
