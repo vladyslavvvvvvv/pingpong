@@ -43,15 +43,15 @@ class GameSprite(pygame.sprite.Sprite):
 class Player(GameSprite):
     def update_r(self):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_DOWN] and self.rect.y < height-200:
             self.rect.y += self.speed
     def update_l(self):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
+        if keys[pygame.K_w] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[pygame.K_s]:
+        if keys[pygame.K_s] and self.rect.y < height-200:
             self.rect.y += self.speed
 
 ball = GameSprite("ball.png", width/2, height/2, 0, (50,50))
@@ -80,8 +80,8 @@ while not game_over:
         #window.fill(background_color)
         window.blit(background, (0,0))
 
-        score_1_text = font2.render(str(score_1), True, (0,0,0))
-        score_2_text = font2.render(str(score_2), True, (0,0,0))
+        score_1_text = font2.render(str(score_1), True, (100,0,0))
+        score_2_text = font2.render(str(score_2), True, (100,0,0))
 
         window.blit(score_1_text, (100,100))
         window.blit(score_2_text, (width-100,100))
